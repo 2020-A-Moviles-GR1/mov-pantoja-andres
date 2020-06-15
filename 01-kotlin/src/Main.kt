@@ -1,6 +1,8 @@
 import java.util.*
+import kotlin.collections.ArrayList
 
 fun main(args:Array<String>) {
+    /*
     println("Hola");
     //Int edad = 31;
     // Variables mutables
@@ -41,7 +43,67 @@ fun main(args:Array<String>) {
             tasa = 16.00,
             sueldo = 800.00
     )) // Named Params
+    */
+
+    // Arreglos
+    var arregloConstante: Array<Int> = arrayOf(1,2,3)
+    val arregloCumpleanos : ArrayList<Int> = arrayListOf(30,40,20,22)
+    arregloCumpleanos.add(25)
+    //println(arregloCumpleanos)
+    arregloCumpleanos.remove(20)
+    println(arregloCumpleanos)
+/*
+    arregloCumpleanos
+            .forEach{
+                println("Valor iteracion: " + it)
+            }
+    arregloCumpleanos
+            .forEach(
+                { valorIteracion: Int ->
+                    println("Valor iteracion: " + valorIteracion)
+                }
+            )
+    arregloCumpleanos
+            .forEach{valorIteracion: Int ->
+                println("Valor: " + valorIteracion)
+
+    }
+
+    arregloCumpleanos
+            .forEachIndexed{ index: Int, value: Int ->
+                println("El valor " + index + " es: " + value)
+            }
+*/
+    val respuestaMap =   arregloCumpleanos
+            .map { valorArreglo: Int -> valorArreglo * -1 }
+
+    println("Respuesta Map")
+    println(respuestaMap)
+    println("Arreglo")
+    println(arregloCumpleanos)
+
+     val respuestaMapDos =   arregloCumpleanos
+            .map { valorArreglo: Int ->
+                val nuevoValor: Int = valorArreglo * -1
+                val valorFinal: Int = nuevoValor + 2
+                return@map valorFinal.toString()
+            }
+     println("Valores finales")
+     println(respuestaMapDos)
+
+    val mayoresA23 =  arregloCumpleanos
+            .filter { valor: Int ->
+                val esMayorA23: Boolean = valor > 23
+                return@filter esMayorA23
+            }
+    val menorA30 = arregloCumpleanos
+            .filter { valor: Int -> valor < 30 }
+    println("Arreglo inicial ${arregloCumpleanos}")
+    println("Arreglo filtrado mayor ${mayoresA23}")
+    println("Arreglo filtrado menor ${menorA30}")
+
 }
+/*
 // Funciones
 fun calcularSueldo(
         sueldo: Double, // Prarm requerido
@@ -57,4 +119,6 @@ fun calcularSueldo(
 
 fun imprimirMensaje() : Unit { // Unit = Void
     println("")
-}
+}*/
+
+
