@@ -51,7 +51,7 @@ fun main(args:Array<String>) {
     arregloCumpleanos.add(25)
     //println(arregloCumpleanos)
     arregloCumpleanos.remove(20)
-    println(arregloCumpleanos)
+   // println(arregloCumpleanos)
 /*
     arregloCumpleanos
             .forEach{
@@ -77,10 +77,10 @@ fun main(args:Array<String>) {
     val respuestaMap =   arregloCumpleanos
             .map { valorArreglo: Int -> valorArreglo * -1 }
 
-    println("Respuesta Map")
-    println(respuestaMap)
-    println("Arreglo")
-    println(arregloCumpleanos)
+//    println("Respuesta Map")
+//    println(respuestaMap)
+//    println("Arreglo")
+//    println(arregloCumpleanos)
 
      val respuestaMapDos =   arregloCumpleanos
             .map { valorArreglo: Int ->
@@ -88,8 +88,8 @@ fun main(args:Array<String>) {
                 val valorFinal: Int = nuevoValor + 2
                 return@map valorFinal.toString()
             }
-     println("Valores finales")
-     println(respuestaMapDos)
+     //println("Valores finales")
+     //println(respuestaMapDos)
 
     val mayoresA23 =  arregloCumpleanos
             .filter { valor: Int ->
@@ -98,11 +98,87 @@ fun main(args:Array<String>) {
             }
     val menorA30 = arregloCumpleanos
             .filter { valor: Int -> valor < 30 }
-    println("Arreglo inicial ${arregloCumpleanos}")
-    println("Arreglo filtrado mayor ${mayoresA23}")
-    println("Arreglo filtrado menor ${menorA30}")
+    //println("Arreglo inicial ${arregloCumpleanos}")
+    //println("Arreglo filtrado mayor ${mayoresA23}")
+    //println("Arreglo filtrado menor ${menorA30}")
+    println(arregloCumpleanos)
+    val respuestaAny : Boolean = arregloCumpleanos.any{
+        iterador: Int ->
+        return@any iterador< 25
+    }
+    //println(respuestaAny)
+    val respuestaAll: Boolean = arregloCumpleanos.all {
+        iterador: Int ->
+        return@all iterador > 18
+    }
+    //print(respuestaAll)
+
+    // Operador Reduce
+    val respuestaReduce: Int = arregloCumpleanos
+            .reduce { acumulador : Int , iteracion: Int ->
+                return@reduce acumulador + iteracion
+            }
+    //println(respuestaReduce)
+    val arregloString : ArrayList<String> = arrayListOf<String>("a", "b", "c")
+    val reduceString: String = arregloString
+            .reduce { acc, s ->
+                return@reduce acc + ";" + s
+            }
+    //println(reduceString)
+
+    val foldRespuesta : Int = arregloCumpleanos
+            .fold(
+                    100,
+                    { accumulador: Int, iterador: Int ->
+                return@fold accumulador - iterador
+            }
+    )
+    //println(foldRespuesta)
+    
+    val arregloDano: ArrayList<Int> = arrayListOf(30, 31, 22, 23, 20)
+    val vidaActual: Double = arregloDano
+            .map { it * 0.8 }
+            .filter { it > 18 }
+            .fold(
+                    100.00,
+                    { acc, d -> acc - d }
+            )
+    //println(vidaActual)
+
 
 }
+//Clase abstracta.
+abstract class NumerosJava{
+    val numewroUno: Int
+    val numeroDos: Int
+    constructor(uno: Int, dos: Int){
+        numeroDos = dos
+        numewroUno = uno
+    }
+}
+
+abstract class Numeros( // val nuevosNumeros = Numeros(1, 2)
+        protected val numeroUno: Int,
+        protected val numeroDos: Int,
+){
+}
+
+class Suma(
+        uno: Int,
+        dos: Int
+):Numeros(uno, dos){
+    public fun sumar: Int {
+        return this.numeroUno + this.numeroDos
+    }
+}
+
+
+
+
+
+
+
+
 /*
 // Funciones
 fun calcularSueldo(
