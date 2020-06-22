@@ -101,7 +101,7 @@ fun main(args:Array<String>) {
     //println("Arreglo inicial ${arregloCumpleanos}")
     //println("Arreglo filtrado mayor ${mayoresA23}")
     //println("Arreglo filtrado menor ${menorA30}")
-    println(arregloCumpleanos)
+    //println(arregloCumpleanos)
     val respuestaAny : Boolean = arregloCumpleanos.any{
         iterador: Int ->
         return@any iterador< 25
@@ -145,8 +145,34 @@ fun main(args:Array<String>) {
             )
     //println(vidaActual)
 
+//    val nuevaSumaUno = SumarDosNumerosDos(1,1)
+//    val nuevaSumaDos = SumarDosNumerosDos(null,1)
+//    val nuevaSumaTres = SumarDosNumerosDos(1,null)
+//    val nuevaSumaCuatro = SumarDosNumerosDos(null,null)
+////    println(SumarDosNumerosDos.arregloNumeros)
+//    SumarDosNumerosDos.agregarNumero(12)
+////    println(SumarDosNumerosDos.arregloNumeros)
+//    SumarDosNumerosDos.eliminarNumero(0)
+////    println(SumarDosNumerosDos.arregloNumeros)
+
+    var nombre: String? = null
+    nombre = "Andres"
+    imprimirLengthNombre(nombre)
+    imprimirLengthNombre(null)
+//    if (nombre != null){
+//        println(nombre.length)
+//    }
+
+
+
 
 }
+
+fun imprimirLengthNombre(nombre: String?) {
+    println(nombre?.length?.toInt()?.toDouble()) //Elvis Operator
+                            //NULL Safe Calls
+}
+
 //Clase abstracta.
 abstract class NumerosJava{
     val numewroUno: Int
@@ -158,8 +184,8 @@ abstract class NumerosJava{
 }
 
 abstract class Numeros( // val nuevosNumeros = Numeros(1, 2)
-        protected val numeroUno: Int,
-        protected val numeroDos: Int,
+        protected var numeroUno: Int,
+        protected var numeroDos: Int
 ){
 }
 
@@ -167,8 +193,50 @@ class Suma(
         uno: Int,
         dos: Int
 ):Numeros(uno, dos){
-    public fun sumar: Int {
+    public fun sumar(): Int {
         return this.numeroUno + this.numeroDos
+    }
+}
+
+class SumarDosNumerosDos(
+     uno: Int,
+     dos: Int
+):Numeros(uno, dos){
+    init {
+        println("Hola init")
+    }
+    constructor(uno: Int?, dos: Int): this(
+            if(uno == null) 0 else uno,
+            dos
+    ){
+        println ("Hola 1")
+    }
+    constructor(uno: Int, dos: Int?): this(
+            uno,
+            if(dos == null) 0 else dos
+    ){
+        println("Hola 2")
+    }
+    constructor(uno: Int?, dos: Int?): this(
+            if(uno == null) 0 else uno,
+            if(dos == null) 0 else dos
+    ){
+        println("Hola 3")
+    }
+    companion object{
+        val arregloNumeros: ArrayList<Int> = arrayListOf<Int>(1, 2, 3, 4)
+        fun agregarNumero(nuevoNumero:Int){
+            this.arregloNumeros.add(nuevoNumero)
+        }
+        fun eliminarNumero(posicionNumero:Int){
+            this.arregloNumeros.removeAt(posicionNumero)
+        }
+    }
+}
+
+class BaseDeDatos{
+    companion object{
+        val datos = arrayListOf<Int>()
     }
 }
 
