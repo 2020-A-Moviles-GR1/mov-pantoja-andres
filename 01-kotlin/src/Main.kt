@@ -46,6 +46,8 @@ fun main(args:Array<String>) {
     */
 
     // Arreglos
+    val umero = 20
+
     var arregloConstante: Array<Int> = arrayOf(1,2,3)
     val arregloCumpleanos : ArrayList<Int> = arrayListOf(30,40,20,22)
     arregloCumpleanos.add(25)
@@ -195,6 +197,9 @@ class Suma(
 ):Numeros(uno, dos){
     public fun sumar(): Int {
         return this.numeroUno + this.numeroDos
+    }
+    fun foo(){
+
     }
 }
 
