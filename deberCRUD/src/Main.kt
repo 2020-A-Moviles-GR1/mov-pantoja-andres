@@ -51,8 +51,11 @@ fun main(args:Array<String>){
     println("***************")
     arraylistArtistas.forEach{cancion -> println(cancion.toString())}*/
 
-    val vista: VistaPrincipal = VistaPrincipal()
-    vista.iniciar()
+    //val vista: VistaPrincipal = VistaPrincipal()
+    //vista.iniciar()
+    var ac = ArtistaControlador()
+    ac.eliminarArtista(2)
+
 
 
 }

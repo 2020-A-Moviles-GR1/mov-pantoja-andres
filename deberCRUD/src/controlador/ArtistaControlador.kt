@@ -59,6 +59,26 @@ class ArtistaControlador{
     ){
         var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
         val nuevoArtista: Artista = Artista(nombre,banda, fechaInicio, cantidadDiscos, gananciaAcumulada, id)
-        
+
+    }
+
+    fun encontrarIndiceSegunID(listaArtistas: ArrayList<Artista>, id: Int): Int{
+        var elementoEncontrado: List<Artista> = listaArtistas.filter { artista ->
+            return@filter artista.idArtista == id
+        }
+        var indice: Int = listaArtistas.indexOf(elementoEncontrado[0])
+        return indice
+    }
+
+    fun eliminarArtista(id:Int): Boolean{
+        var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
+        val index: Int = encontrarIndiceSegunID(listaArtistas, id)
+        if(index != -1){
+            listaArtistas.removeAt(index)
+            archivo.escribir(listaArtistas, false)
+        }else{
+            return false
+        }
+        return true;
     }
 }
