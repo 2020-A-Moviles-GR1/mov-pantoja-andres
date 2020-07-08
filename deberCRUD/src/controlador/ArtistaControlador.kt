@@ -1,6 +1,7 @@
 package controlador
 
 import modelo.Artista
+import java.lang.Exception
 import java.time.LocalDate
 import java.util.*
 import kotlin.collections.ArrayList
@@ -14,8 +15,8 @@ class ArtistaControlador{
         var acumuladorArtistas: ArrayList<Artista> = arrayListOf();
         arregloDeStrings.forEach { valor ->
             var arregloDatosEnString: Array<String> = valor.split(",").toTypedArray();
-            println("Imprimir arreglo separado de comas")
-            arregloDatosEnString.forEach { v -> println(v) }
+            //println("Imprimir arreglo separado de comas")
+            //arregloDatosEnString.forEach { v -> println(v) }
             acumuladorArtistas.add(Artista(
                     arregloDatosEnString[0],
                     arregloDatosEnString[1].toBoolean(),
@@ -33,16 +34,22 @@ class ArtistaControlador{
                      banda:Boolean,
                      fechaInicio: LocalDate,
                      cantidadDiscos: Int,
-                     gananciaAcumulada:Double){
+                     gananciaAcumulada:Double): Boolean{
 
-        var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
-        listaArtistas.add(Artista(nombre,
-                banda,
-                fechaInicio,
-                cantidadDiscos,
-                gananciaAcumulada,
-                listaArtistas.last().idArtista + 1))
-        archivo.escribir(listaArtistas, false)
+        try {
+            var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
+            listaArtistas.add(Artista(nombre,
+                    banda,
+                    fechaInicio,
+                    cantidadDiscos,
+                    gananciaAcumulada,
+                    listaArtistas.last().idArtista + 1))
+            archivo.escribir(listaArtistas, false)
+            return true;
+        }catch (e: Exception) {
+            return false
+        }
+
     }
 
     fun contarArtistas(): Int{
@@ -50,30 +57,42 @@ class ArtistaControlador{
         return listaArtistas.size
     }
 
-    fun actualizarArtista(id: Int,
-                          nombre:String,
-                          banda:Boolean,
-                          fechaInicio: LocalDate,
-                          cantidadDiscos: Int,
-                          gananciaAcumulada:Double
-    ){
+
+
+    fun encontrarIndiceSegunID( id: Int): Int{
         var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
-        val nuevoArtista: Artista = Artista(nombre,banda, fechaInicio, cantidadDiscos, gananciaAcumulada, id)
-
-    }
-
-    fun encontrarIndiceSegunID(listaArtistas: ArrayList<Artista>, id: Int): Int{
         var elementoEncontrado: List<Artista> = listaArtistas.filter { artista ->
             return@filter artista.idArtista == id
         }
-        var indice: Int = listaArtistas.indexOf(elementoEncontrado[0])
-        return indice
+        try {
+            var indice: Int = listaArtistas.indexOf(elementoEncontrado[0])
+            return indice
+        }catch (e: IndexOutOfBoundsException){
+            return -1
+        }
+
+
+    }
+
+    fun actualizarArtista(indice: Int, nuevaCantidadDiscos: Int, nuevaGananciaTotal: Double): Boolean{
+       try {
+           var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
+           listaArtistas[indice].cantidadDiscos = nuevaCantidadDiscos
+           listaArtistas[indice].gananciaTotal = nuevaGananciaTotal
+           archivo.escribir(listaArtistas, false)
+           return true
+       }catch (e: Exception){
+           return false
+       }
+
     }
 
     fun eliminarArtista(id:Int): Boolean{
-        var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
-        val index: Int = encontrarIndiceSegunID(listaArtistas, id)
+
+        val index: Int = encontrarIndiceSegunID(id)
+
         if(index != -1){
+            var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
             listaArtistas.removeAt(index)
             archivo.escribir(listaArtistas, false)
         }else{
@@ -81,4 +100,20 @@ class ArtistaControlador{
         }
         return true;
     }
+
+
+    fun mostrarArtistas(){
+        var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
+        if (listaArtistas.size != 0){
+            listaArtistas.forEach{artista -> artista.toBeautyString()}
+        }else{
+            println("No hay artistas")
+        }
+    }
+
+    fun indicarArtistaSegunID(id: Int): Artista {
+        var listaArtistas: ArrayList<Artista> = parsearArtista(archivo.leer())
+        return listaArtistas[encontrarIndiceSegunID(id)]
+    }
+
 }

@@ -19,4 +19,9 @@ open class Artista constructor(val nombre: String,
         return "${nombre},${banda},${fechaInicio},${cantidadDiscos},${gananciaTotal},${idArtista}";
     }
 
+    fun toBeautyString(){
+        println("ID: $idArtista\tNombre: $nombre\tBanda: $banda\tFecha de Inicio: $fechaInicio\t" +
+                "Cantidad de Discos: $cantidadDiscos\tGanancias: $gananciaTotal")
+    }
+
 }

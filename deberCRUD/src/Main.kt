@@ -50,11 +50,10 @@ fun main(args:Array<String>){
     val arraylistArtistas: ArrayList<Cancion> = controlaCancion.parsearCancion(arregloDeStrings)
     println("***************")
     arraylistArtistas.forEach{cancion -> println(cancion.toString())}*/
-
-    //val vista: VistaPrincipal = VistaPrincipal()
-    //vista.iniciar()
-    var ac = ArtistaControlador()
-    ac.eliminarArtista(2)
+    val vista: VistaPrincipal = VistaPrincipal()
+    vista.iniciar()
+    //var ac = ArtistaControlador()
+    //ac.eliminarArtista(2)
 
 
 

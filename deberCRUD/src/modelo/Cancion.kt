@@ -19,4 +19,9 @@ class Cancion(
         return "${titulo},${premiada},${fechaDeLanzamiento},${numeroDeReproducciones},${duracionMinutos},${idCancion},${idArtista}";
     }
 
+    fun toBeautyString(){
+        println("ID: $idCancion\tTítulo: $titulo\tPremiada: $premiada\tFecha de Lanzamiento: $fechaDeLanzamiento\t" +
+                "Número de Reproducciones: $numeroDeReproducciones\tDuración en Minutos: $duracionMinutos")
+    }
+
 }

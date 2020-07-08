@@ -14,7 +14,11 @@ interface Validador {
 
     fun esValidoBoolean(boolean: String): Boolean{
         try{
-            boolean.toBoolean()
+            if(boolean == "true" ||  boolean == "false"){
+                boolean.toBoolean()
+            }else{
+                return false
+            }
         }catch (e: Exception){
             return false
         }
