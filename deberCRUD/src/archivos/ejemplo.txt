@@ -1,0 +1,4 @@
+art1,true,Thu Feb 01 00:00:00 ECT 3917,1,1000.0
+art2,true,Fri Mar 02 00:00:00 ECT 3917,2,2000.0
+art3,false,Tue Apr 03 00:00:00 ECT 3917,3,3000.0
+art4,true,Fri May 04 00:00:00 ECT 3917,4,4000.0
