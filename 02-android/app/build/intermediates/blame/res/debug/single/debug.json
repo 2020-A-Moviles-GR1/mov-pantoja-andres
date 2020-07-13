@@ -60,6 +60,10 @@
         "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
     },
     {
+        "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/layout_activity_list_view.xml.flat",
+        "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/layout/activity_list_view.xml"
+    },
+    {
         "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     }

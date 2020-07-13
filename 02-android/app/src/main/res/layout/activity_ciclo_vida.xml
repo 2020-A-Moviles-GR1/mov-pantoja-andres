@@ -10,10 +10,10 @@
         android:id="@+id/tv_numero"
         android:layout_width="126dp"
         android:layout_height="31dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="88dp"
         android:text="No tiene valor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
