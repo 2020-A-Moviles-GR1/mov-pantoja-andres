@@ -19,6 +19,15 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.moviles.IntentEnviaParametrosActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.moviles.ListViewActivity" />
         <activity android:name="com.example.moviles.CicloVida" />
         <activity android:name="com.example.moviles.MainActivity" >

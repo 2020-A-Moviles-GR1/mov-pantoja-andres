@@ -18,19 +18,34 @@ class ListViewActivity : AppCompatActivity() {
         listaEntrenadores.add(Entrenador("Mishel", "Castro"))
         listaEntrenadores.add(Entrenador("Juan", "Morales"))
 
+        val adaptador: ArrayAdapter<Entrenador> = ArrayAdapter(
+                this, // contexto
+                android.R.layout.simple_list_item_1, // nombre layout
+                listaEntrenadores // lista
+        )
 
-        val adaptador = ArrayAdapter(
-            this, // contexto
-            android.R.layout.simple_list_item_1, // nombre layout
-            listaEntrenadores // lista
-            )
         lv_numeros.adapter = adaptador
 
         lv_numeros
-            .onItemClickListener = AdapterView.OnItemClickListener{
+                .onItemClickListener = AdapterView.OnItemClickListener{
             parent, view, position, id ->
             Log.i("list-view", "Posicion: $position")
         }
+
+
+        btn_agregar.setOnClickListener{
+            boton -> agregarElemento(adaptador,listaEntrenadores)
+        }
+
+
+    }
+
+
+    fun agregarElemento(
+            adaptador: ArrayAdapter<Entrenador> ,
+            listaEntrenadores: ArrayList<Entrenador>){
+      listaEntrenadores.add(Entrenador(text_nombre.text.toString(), text_Apellido.text.toString()))
+        adaptador.notifyDataSetChanged()
     }
 
 
