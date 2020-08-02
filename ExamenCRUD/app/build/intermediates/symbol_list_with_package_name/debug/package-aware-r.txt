@@ -750,6 +750,7 @@ id btn_actualizar_cancion
 id btn_agregar
 id btn_agregar_cancion
 id btn_artista
+id btn_buscar
 id btn_cancelar
 id btn_cancelar_cancion
 id btn_cancion

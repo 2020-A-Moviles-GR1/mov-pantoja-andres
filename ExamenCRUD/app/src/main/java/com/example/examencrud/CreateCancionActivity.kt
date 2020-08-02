@@ -34,6 +34,8 @@ class CreateCancionActivity : AppCompatActivity() {
         listaDeArtistas = ArtistaDatos.listaArtista
         listaDeCanciones = CancionDatos.listaCanciones
 
+        listaDeCanciones.forEach { cancion -> Log.i("titulo", "${cancion.titulo}") }
+
         adapterArtista =  ArrayAdapter(
             this,
             android.R.layout.simple_spinner_dropdown_item,
@@ -61,7 +63,7 @@ class CreateCancionActivity : AppCompatActivity() {
         intentRespuesta.putExtra("titulo", et_titulo.text.toString())
         intentRespuesta.putExtra("premiada", sw_premiada.isChecked)
         intentRespuesta.putExtra("fecha", ed_fecha_lanzamiento.text.toString())
-        intentRespuesta.putExtra("reproduccines", etn_reproducciones.text.toString().toInt())
+        intentRespuesta.putExtra("reproducciones", etn_reproducciones.text.toString().toInt())
         intentRespuesta.putExtra("duracion", etnd_duracion.text.toString().toDouble())
         intentRespuesta.putExtra("idArtista", listaDeArtistas[sp_artistas.selectedItemPosition].idArtista)
 

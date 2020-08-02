@@ -1,5 +1,6 @@
 package com.example.examencrud
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.examencrud.datos.ArtistaDatos
@@ -29,12 +30,13 @@ class CancionVerMasActivity : AppCompatActivity() {
             tv_Duracion.text = cancion.duracionMinutos.toString()
             tv_reproducciones.text = cancion.numeroDeReproducciones.toString()
             val posicionArtista = encontrarIndiceSegunIDArtista(cancion.idArtista)
-            tv_Artista.text =  listaDeArtistas[posicion].nombre
+            tv_Artista.text =  listaDeArtistas[posicionArtista].nombre
         }
 
 
 
         btn_salir.setOnClickListener { boton -> finish() }
+        btn_buscar.setOnClickListener { boton -> buscar() }
 
     }
 
@@ -53,4 +55,18 @@ class CancionVerMasActivity : AppCompatActivity() {
 
 
     }
+
+    fun buscar(){
+        var intent: Intent = Intent(
+            Intent.ACTION_SEARCH
+        )
+        intent.setPackage("com.google.android.youtube")
+        intent.putExtra(
+            "query",
+            "${tv_titulo_cancion.text.toString()} - ${tv_Artista.text.toString()}")
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+    }
+
+
 }
