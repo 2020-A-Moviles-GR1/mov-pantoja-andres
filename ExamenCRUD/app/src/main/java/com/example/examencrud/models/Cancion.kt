@@ -15,7 +15,7 @@ class Cancion(
     val nombreArchivo: String = "./src/archivos/cancion.txt"
 
     override fun toString(): String {
-        return "${titulo},${premiada},${fechaDeLanzamiento},${numeroDeReproducciones},${duracionMinutos},${idCancion},${idArtista}";
+        return "${titulo}";
     }
 
     fun toBeautyString(){
