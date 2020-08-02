@@ -9,12 +9,15 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.examencrud.datos.ArtistaDatos
+import com.example.examencrud.datos.CancionDatos
 import com.example.examencrud.models.Artista
+import com.example.examencrud.models.Cancion
 import kotlinx.android.synthetic.main.activity_artista.*
 import java.time.LocalDate
 
 class ArtistaActivity : AppCompatActivity() {
     var listaDeArtistas: ArrayList<Artista> = arrayListOf()
+
     lateinit var  adapter: ArrayAdapter<Artista>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,7 +89,6 @@ class ArtistaActivity : AppCompatActivity() {
     ) {
         var posicion: Int = lv_artista.checkedItemPosition
         Log.i("list-view", "Posicion: $posicion")
-
         listaDeArtistas.removeAt(posicion)
         adapter.notifyDataSetChanged()
 

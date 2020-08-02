@@ -19,7 +19,7 @@ open class Artista constructor(val nombre: String?,
 
     override fun toString(): String {
 
-        return "${nombre},${banda},${fechaInicio},${cantidadDiscos},${gananciaTotal},${idArtista}";
+        return "${nombre}";
     }
 
     fun toBeautyString(){

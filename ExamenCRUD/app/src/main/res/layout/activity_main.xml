@@ -39,8 +39,8 @@
 
     <Button
         android:id="@+id/btn_cancion"
-        android:layout_width="117dp"
-        android:layout_height="51dp"
+        android:layout_width="128dp"
+        android:layout_height="53dp"
         android:layout_marginTop="76dp"
         android:text="Cancion"
         android:textSize="18sp"
@@ -50,8 +50,8 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_artista" />
 
     <LinearLayout
-        android:layout_width="428dp"
-        android:layout_height="63dp"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
         android:layout_marginBottom="82dp"
         android:background="#4898BC"
         android:gravity="center|clip_vertical"
@@ -84,8 +84,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="415dp"
-        android:layout_height="55dp"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
         android:background="#4898BC"
         android:gravity="center|clip_vertical"
         android:orientation="horizontal"

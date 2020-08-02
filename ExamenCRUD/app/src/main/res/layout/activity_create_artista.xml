@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="391dp"
-        android:layout_height="81dp"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
         android:background="#4898BC"
         android:gravity="clip_horizontal|center"
         android:orientation="vertical"
