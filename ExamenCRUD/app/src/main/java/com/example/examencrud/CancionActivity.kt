@@ -69,6 +69,7 @@ class CancionActivity : AppCompatActivity() {
             this,
             CancionVerMasActivity::class.java
         )
+        Log.i("Pos", "$posicion")
         intent.putExtra("posicion", posicion)
 
         startActivity(intent)
@@ -129,6 +130,7 @@ class CancionActivity : AppCompatActivity() {
                                     idArtista
                                 )
                             )
+                            listaDeCanciones.forEach { cancion -> Log.i("titulo", "${cancion.titulo}") }
                             adapterCancion.notifyDataSetChanged()
 
 
