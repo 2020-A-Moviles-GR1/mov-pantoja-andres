@@ -12,22 +12,39 @@ class IntentEnviaParametrosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent_envia_parametros)
         // intent -> propiedad de la clase
-        var numeroEncontrado  = intent.getIntExtra("numero", 0)
+        var numeroEncontrado = intent.getIntExtra("numero", 0)
 
         Log.i("Intent", "El numero encontrado es $numeroEncontrado")
 
         val textoCompartido = intent.getStringExtra(Intent.EXTRA_TEXT)
-        if(textoCompartido != null){
+        if (textoCompartido != null) {
             Log.i("Intent", "El texto compartido es $textoCompartido")
         }
 
+
+        val lily = intent.getParcelableExtra<Mascota>("mascota")
+        if (lily != null) {
+            Log.i("Parcelable", "${lily.nombre} - ${lily.duenio?.nombre}")
+
+        }
+        val arregloMascotas = intent.getParcelableArrayListExtra<Mascota>("arregloMascotas")
+        if (arregloMascotas != null) {
+            arregloMascotas.forEach { mascota ->
+                    Log.i("Parcelable", "En arreglo")
+                    Log.i("Parcelable", "${mascota.nombre} - ${mascota.duenio?.nombre}")
+            }
+        }
+
+
+
+
         btn_devolver_respuesta
-                .setOnClickListener{
+                .setOnClickListener {
                     finish()
                 }
 
         btn_resp_aceptar
-                .setOnClickListener{
+                .setOnClickListener {
                     val nombre = "Andres"
                     val edad = 21
                     val intentRespuesta = Intent()
@@ -41,8 +58,8 @@ class IntentEnviaParametrosActivity : AppCompatActivity() {
                 }
 
         btn_resp_cancelar
-                .setOnClickListener{
-                    val intentCanelado =Intent()
+                .setOnClickListener {
+                    val intentCanelado = Intent()
                     setResult(
                             Activity.RESULT_CANCELED,
                             intentCanelado
