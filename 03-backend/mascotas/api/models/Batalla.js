@@ -6,8 +6,19 @@
  */
 
 module.exports = {
-
+  tableName: 'batalla',
   attributes: {
+    nombre: {
+      type: "string",
+      required: true
+    },
+    pokemon: {
+      model: 'pokemon',
+      required: true
+    }
+
+
+
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
