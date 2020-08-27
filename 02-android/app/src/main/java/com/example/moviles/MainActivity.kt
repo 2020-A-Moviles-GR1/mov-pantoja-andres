@@ -36,6 +36,18 @@ class MainActivity : AppCompatActivity() {
             boton -> enviarIntentConRespuestaPropia()
         }
 
+        btn_http.setOnClickListener{
+            boton -> irHTTP()
+        }
+
+    }
+
+    fun irHTTP(){
+        val intent: Intent = Intent(
+        this,
+        HTTPActivity::class.java
+        )
+        startActivity(intent)
     }
 
     fun enviarIntentConRespuestaPropia(){

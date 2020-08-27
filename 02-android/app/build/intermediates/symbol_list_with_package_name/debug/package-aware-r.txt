@@ -744,10 +744,13 @@ id bottom
 id btn_agregar
 id btn_anadir
 id btn_ciclo_vida
+id btn_crear
 id btn_devolver_respuesta
+id btn_http
 id btn_intent_implicito
 id btn_intent_respuesta
 id btn_listView
+id btn_obtener
 id btn_resp_aceptar
 id btn_resp_cancelar
 id btn_resp_propia
@@ -912,6 +915,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_ciclo_vida
+layout activity_h_t_t_p
 layout activity_intent_envia_parametros
 layout activity_list_view
 layout activity_main
