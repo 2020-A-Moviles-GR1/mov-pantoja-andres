@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
             boton -> irHTTP()
         }
 
+        btn_recycler_view.setOnClickListener{
+            boton -> irRecyclerView()
+        }
+    }
+
+
+    fun irRecyclerView(){
+
     }
 
     fun irHTTP(){

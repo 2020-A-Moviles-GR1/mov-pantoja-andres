@@ -1,4 +1,4 @@
-#Thu Aug 27 08:22:19 ECT 2020
+#Wed Sep 02 13:51:22 ECT 2020
 base.0=/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
