@@ -43,11 +43,27 @@ class MainActivity : AppCompatActivity() {
         btn_recycler_view.setOnClickListener{
             boton -> irRecyclerView()
         }
+
+        btn_mapas.setOnClickListener{
+            boton -> irMapas()
+        }
+    }
+
+    fun irMapas(){
+        val intent: Intent = Intent(
+                this,
+                MapsActivity::class.java
+        )
+        startActivity(intent)
     }
 
 
     fun irRecyclerView(){
-
+        val intent: Intent = Intent(
+                this,
+                RecyclerViewActivity::class.java
+        )
+        startActivity(intent)
     }
 
     fun irHTTP(){

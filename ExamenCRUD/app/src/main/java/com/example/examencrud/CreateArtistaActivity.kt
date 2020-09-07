@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
+import com.example.examencrud.httphandler.HTTPHandler
+import com.example.examencrud.htttpmodels.ArtistaHTTP
 import com.example.examencrud.models.Artista
 import kotlinx.android.synthetic.main.activity_create_artista.*
 
@@ -16,24 +18,31 @@ class CreateArtistaActivity : AppCompatActivity() {
 
         btn_aceptar.setOnClickListener { boton -> crearArtista() }
         btn_cancelar.setOnClickListener { boton -> finish() }
+        val handler = HTTPHandler();
+        if(intent.hasExtra("id")){
+            val id = intent.getIntExtra("id", 0)
+            val artista: ArtistaHTTP? = handler.getOne(id)
+            if(artista!= null){
+                ponerEntornoActualizar(artista)
+            }else {
+                Log.i("ERROR artista act", "No hay artista")
+            }
 
-        if(intent.hasExtra("posicion")){
-            ponerEntornoActualizar()
         }
 
 
     }
 
-    fun ponerEntornoActualizar(){
+    fun ponerEntornoActualizar(artista: ArtistaHTTP){
         tv_titulo.text = "Actualizar Artista"
-        et_nombre.setText(intent.getStringExtra("nombre"))
+        et_nombre.setText( artista.nombre)
         et_nombre.isEnabled = false
-        sw_banda.isChecked = intent.getBooleanExtra("banda", false)
+        sw_banda.isChecked = artista.banda
         sw_banda.isEnabled = false
-        ed_fecha_inicio.setText(intent.getStringExtra("fecha"))
+        ed_fecha_inicio.setText(artista.fechaInicio.toString())
         ed_fecha_inicio.isEnabled = false
-        etn_cantidad_discos.setText(intent.getIntExtra("discos", 0).toString())
-        etnd_ganacia_total.setText(intent.getDoubleExtra("ganacia", 0.0).toString())
+        etn_cantidad_discos.setText(artista.cantidadDiscos.toString())
+        etnd_ganacia_total.setText(artista.gananciaTotal.toString())
         btn_aceptar.setOnClickListener { boton -> actualizar() }
 
     }
@@ -42,7 +51,7 @@ class CreateArtistaActivity : AppCompatActivity() {
         val intentRespuesta: Intent = Intent()
         intentRespuesta.putExtra("discos", etn_cantidad_discos.text.toString().toInt())
         intentRespuesta.putExtra("ganacia", etnd_ganacia_total.text.toString().toDouble())
-        intentRespuesta.putExtra("posicion", intent.getIntExtra("posicion", 0))
+        intentRespuesta.putExtra("id", intent.getIntExtra("id", 0))
         setResult(Activity.RESULT_OK, intentRespuesta)
         finish()
 
@@ -54,6 +63,7 @@ class CreateArtistaActivity : AppCompatActivity() {
         Log.i("Datos", "Banda ${sw_banda.isChecked}")
         Log.i("Datos", "Discos ${etn_cantidad_discos.text}")
         Log.i("Datos", "Ganancia ${etnd_ganacia_total.text}")
+
         val intentRespuesta: Intent = Intent()
         intentRespuesta.putExtra("nombre", et_nombre.text.toString())
         intentRespuesta.putExtra("banda", sw_banda.isChecked)

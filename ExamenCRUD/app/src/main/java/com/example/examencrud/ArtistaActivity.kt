@@ -10,20 +10,33 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.examencrud.datos.ArtistaDatos
 import com.example.examencrud.datos.CancionDatos
+import com.example.examencrud.httphandler.HTTPHandler
+import com.example.examencrud.htttpmodels.ArtistaHTTP
 import com.example.examencrud.models.Artista
 import com.example.examencrud.models.Cancion
+import com.github.kittinunf.fuel.core.FuelError
 import kotlinx.android.synthetic.main.activity_artista.*
 import java.time.LocalDate
 
 class ArtistaActivity : AppCompatActivity() {
+    var listaDeArtistasHTTP: ArrayList<ArtistaHTTP> = arrayListOf()
     var listaDeArtistas: ArrayList<Artista> = arrayListOf()
+    var handler: HTTPHandler = HTTPHandler()
 
-    lateinit var  adapter: ArrayAdapter<Artista>
+    lateinit var  adapter: ArrayAdapter<ArtistaHTTP>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artista)
         actionBar?.setDisplayHomeAsUpEnabled(true)
-        listaDeArtistas = ArtistaDatos.listaArtista;
+
+
+
+       listaDeArtistasHTTP =  handler.getAll()
+
+
+        //listaDeArtistas = ArtistaDatos.listaArtista
 
         btn_actualizar.isEnabled = false
         btn_eliminar.isEnabled = false
@@ -32,7 +45,7 @@ class ArtistaActivity : AppCompatActivity() {
          adapter = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_activated_1,
-            listaDeArtistas
+            listaDeArtistasHTTP
         )
 
         lv_artista.choiceMode = ListView.CHOICE_MODE_SINGLE
@@ -63,23 +76,19 @@ class ArtistaActivity : AppCompatActivity() {
     fun actualizar(){
         var posicion: Int = lv_artista.checkedItemPosition
         var intentExplicito: Intent = Intent(this, CreateArtistaActivity::class.java)
-        intentExplicito.putExtra("nombre", listaDeArtistas[posicion].nombre)
-        intentExplicito.putExtra("banda", listaDeArtistas[posicion].banda)
-        intentExplicito.putExtra("fecha", listaDeArtistas[posicion].fechaInicio.toString())
-        intentExplicito.putExtra("discos", listaDeArtistas[posicion].cantidadDiscos)
-        intentExplicito.putExtra("ganacia", listaDeArtistas[posicion].gananciaTotal)
-        intentExplicito.putExtra("posicion", posicion)
+//        intentExplicito.putExtra("nombre", listaDeArtistas[posicion].nombre)
+//        intentExplicito.putExtra("banda", listaDeArtistas[posicion].banda)
+//        intentExplicito.putExtra("fecha", listaDeArtistas[posicion].fechaInicio.toString())
+//        intentExplicito.putExtra("discos", listaDeArtistas[posicion].cantidadDiscos)
+//        intentExplicito.putExtra("ganacia", listaDeArtistas[posicion].gananciaTotal)
+        intentExplicito.putExtra("id", listaDeArtistasHTTP[posicion].id)
         startActivityForResult(intentExplicito, 2)
     }
 
     fun verMas(){
         var posicion: Int = lv_artista.checkedItemPosition
         var intentExplicito: Intent = Intent(this, ArtistaVerMasActivity::class.java)
-        intentExplicito.putExtra("nombre", listaDeArtistas[posicion].nombre)
-        intentExplicito.putExtra("banda", listaDeArtistas[posicion].banda)
-        intentExplicito.putExtra("fecha", listaDeArtistas[posicion].fechaInicio.toString())
-        intentExplicito.putExtra("discos", listaDeArtistas[posicion].cantidadDiscos)
-        intentExplicito.putExtra("ganacia", listaDeArtistas[posicion].gananciaTotal)
+        intentExplicito.putExtra("id", listaDeArtistasHTTP[posicion].id)
 
         startActivity(intentExplicito)
 
@@ -87,10 +96,21 @@ class ArtistaActivity : AppCompatActivity() {
 
     fun eliminarArtistaActual(
     ) {
+//        var posicion: Int = lv_artista.checkedItemPosition
+//        Log.i("list-view", "Posicion: $posicion")
+//        listaDeArtistas.removeAt(posicion)
+//        adapter.notifyDataSetChanged()
         var posicion: Int = lv_artista.checkedItemPosition
-        Log.i("list-view", "Posicion: $posicion")
-        listaDeArtistas.removeAt(posicion)
-        adapter.notifyDataSetChanged()
+        var artistaPorEliminar = listaDeArtistasHTTP[posicion]
+        val artistaEliminados = handler.deleteOne(artistaPorEliminar.id)
+        if (artistaEliminados != null){
+            listaDeArtistasHTTP.removeAt(posicion)
+            adapter.notifyDataSetChanged()
+        }else{
+            Log.i("Error", "error al eliminar")
+        }
+
+
 
     }
 
@@ -117,18 +137,33 @@ class ArtistaActivity : AppCompatActivity() {
                             val fecha = data.getStringExtra("fecha")
                             val discos = data.getIntExtra("discos", 0)
                             val ganancia = data.getDoubleExtra("ganacia", 0.0)
-                            val id: Int = listaDeArtistas.last().idArtista + 1
-                            listaDeArtistas.add(
-                                Artista(
-                                    nombre,
-                                    banda,
-                                    LocalDate.parse(fecha),
-                                    discos,
-                                    ganancia,
-                                    id
-                                )
+                           // val id: Int = listaDeArtistas.last().idArtista + 1
+                            val parametros = listOf(
+                                "nombre" to "$nombre",
+                                "banda" to "$banda",
+                                "fechaInicio" to "$fecha",
+                                "cantidadDiscos" to "$discos",
+                                "gananciaTotal" to "$ganancia"
                             )
-                            adapter.notifyDataSetChanged()
+                            var artistaCreado = handler.createOne(parametros)
+                            if (artistaCreado!= null){
+                                listaDeArtistasHTTP.add(artistaCreado)
+                                adapter.notifyDataSetChanged()
+                            }else{
+                                Log.i("Error", "Error creando artista")
+                            }
+//
+//                            listaDeArtistas.add(
+//                                Artista(
+//                                    nombre,
+//                                    banda,
+//                                    LocalDate.parse(fecha),
+//                                    discos,
+//                                    ganancia,
+//                                    id
+//                                )
+//                            )
+//                            adapter.notifyDataSetChanged()
 
 
                         }
@@ -137,12 +172,32 @@ class ArtistaActivity : AppCompatActivity() {
                     2 -> {
                         if (data != null){
                             val discos = data.getIntExtra("discos", 0)
-                            val posicion = data.getIntExtra("posicion", 0)
+                            val id = data.getIntExtra("id", 0)
                             val ganancia = data.getDoubleExtra("ganacia", 0.0)
-                            listaDeArtistas[posicion].cantidadDiscos = discos
-                            listaDeArtistas[posicion].gananciaTotal = ganancia
-                            adapter.notifyDataSetChanged()
+                            val parametros: List<Pair<String, Any>> = listOf(
+                                "gananciaTotal" to "$ganancia",
+                                "cantidadDiscos" to "$discos"
+                            )
+                            if (id!=0){
+                                val artista = handler.updateOne(parametros, id)
+                                if (artista!= null){
 
+                                    val artistasActualizados = handler.getAll()
+                                    if (artistasActualizados.size > 0){
+                                        Log.i("Si hay artisyas", "Si hay artistas")
+                                        listaDeArtistasHTTP.clear()
+                                        listaDeArtistasHTTP.addAll(artistasActualizados)
+                                        adapter.notifyDataSetChanged()
+                                    }else{
+                                        Log.i("Http-get-update", "No hay datos")
+                                    }
+
+                                }else{
+                                    Log.i("Error", "Error creando artista")
+                                }
+                            }else {
+                                Log.i("Errore traer datos update", "Error al traer datos update")
+                            }
                         }
                     }
                 }

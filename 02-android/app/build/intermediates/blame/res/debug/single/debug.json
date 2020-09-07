@@ -20,12 +20,20 @@
         "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/layout_activity_maps.xml.flat",
+        "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/layout/activity_maps.xml"
+    },
+    {
         "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/layout_adaptador_persona.xml.flat",
+        "source": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/res/layout/adaptador_persona.xml"
     },
     {
         "merged": "/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",

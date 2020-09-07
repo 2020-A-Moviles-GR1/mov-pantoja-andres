@@ -64,6 +64,7 @@ attr alertDialogTheme
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
+attr ambientEnabled
 attr arrowHeadLength
 attr arrowShaftLength
 attr autoCompleteTextViewStyle
@@ -90,13 +91,22 @@ attr buttonCompat
 attr buttonGravity
 attr buttonIconDimen
 attr buttonPanelSideLayout
+attr buttonSize
 attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
+attr cameraBearing
+attr cameraMaxZoomPreference
+attr cameraMinZoomPreference
+attr cameraTargetLat
+attr cameraTargetLng
+attr cameraTilt
+attr cameraZoom
 attr chainUseRtl
 attr checkboxStyle
 attr checkedTextViewStyle
+attr circleCrop
 attr closeIcon
 attr closeItemLayout
 attr collapseContentDescription
@@ -111,6 +121,7 @@ attr colorControlNormal
 attr colorError
 attr colorPrimary
 attr colorPrimaryDark
+attr colorScheme
 attr colorSwitchThumbNormal
 attr commitIcon
 attr constraintSet
@@ -180,6 +191,8 @@ attr icon
 attr iconTint
 attr iconTintMode
 attr iconifiedByDefault
+attr imageAspectRatio
+attr imageAspectRatioAdjust
 attr imageButtonStyle
 attr indeterminateProgressStyle
 attr initialActivityCount
@@ -187,6 +200,10 @@ attr isLightTheme
 attr itemPadding
 attr keylines
 attr lastBaselineToBottomHeight
+attr latLngBoundsNorthEastLatitude
+attr latLngBoundsNorthEastLongitude
+attr latLngBoundsSouthWestLatitude
+attr latLngBoundsSouthWestLongitude
 attr layout
 attr layoutManager
 attr layout_anchor
@@ -261,8 +278,10 @@ attr listPreferredItemPaddingEnd
 attr listPreferredItemPaddingLeft
 attr listPreferredItemPaddingRight
 attr listPreferredItemPaddingStart
+attr liteMode
 attr logo
 attr logoDescription
+attr mapType
 attr maxButtonHeight
 attr measureWithLargestChild
 attr menu
@@ -292,6 +311,7 @@ attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
 attr reverseLayout
+attr scopeUris
 attr searchHintIcon
 attr searchIcon
 attr searchViewStyle
@@ -364,6 +384,15 @@ attr track
 attr trackTint
 attr trackTintMode
 attr ttcIndex
+attr uiCompass
+attr uiMapToolbar
+attr uiRotateGestures
+attr uiScrollGestures
+attr uiScrollGesturesDuringRotateOrZoom
+attr uiTiltGestures
+attr uiZoomControls
+attr uiZoomGestures
+attr useViewLifecycle
 attr viewInflaterClass
 attr voiceIcon
 attr windowActionBar
@@ -376,6 +405,7 @@ attr windowFixedWidthMinor
 attr windowMinWidthMajor
 attr windowMinWidthMinor
 attr windowNoTitle
+attr zOrderOnTop
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
@@ -420,6 +450,17 @@ color button_material_light
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
+color common_google_signin_btn_text_dark
+color common_google_signin_btn_text_dark_default
+color common_google_signin_btn_text_dark_disabled
+color common_google_signin_btn_text_dark_focused
+color common_google_signin_btn_text_dark_pressed
+color common_google_signin_btn_text_light
+color common_google_signin_btn_text_light_default
+color common_google_signin_btn_text_light_disabled
+color common_google_signin_btn_text_light_focused
+color common_google_signin_btn_text_light_pressed
+color common_google_signin_btn_tint
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -688,6 +729,27 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable common_full_open_on_phone
+drawable common_google_signin_btn_icon_dark
+drawable common_google_signin_btn_icon_dark_focused
+drawable common_google_signin_btn_icon_dark_normal
+drawable common_google_signin_btn_icon_dark_normal_background
+drawable common_google_signin_btn_icon_disabled
+drawable common_google_signin_btn_icon_light
+drawable common_google_signin_btn_icon_light_focused
+drawable common_google_signin_btn_icon_light_normal
+drawable common_google_signin_btn_icon_light_normal_background
+drawable common_google_signin_btn_text_dark
+drawable common_google_signin_btn_text_dark_focused
+drawable common_google_signin_btn_text_dark_normal
+drawable common_google_signin_btn_text_dark_normal_background
+drawable common_google_signin_btn_text_disabled
+drawable common_google_signin_btn_text_light
+drawable common_google_signin_btn_text_light_focused
+drawable common_google_signin_btn_text_light_normal
+drawable common_google_signin_btn_text_light_normal_background
+drawable googleg_disabled_color_18
+drawable googleg_standard_color_18
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable notification_action_background
@@ -764,14 +826,18 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id adjust_height
+id adjust_width
 id alertTitle
 id all
 id always
 id async
+id auto
 id barrier
 id beginning
 id blocking
 id bottom
+id btn_accion
 id btn_agregar
 id btn_anadir
 id btn_ciclo_vida
@@ -783,6 +849,7 @@ id btn_http
 id btn_intent_implicito
 id btn_intent_respuesta
 id btn_listView
+id btn_mapas
 id btn_obtener
 id btn_recycler_view
 id btn_resp_aceptar
@@ -804,6 +871,7 @@ id content
 id contentPanel
 id custom
 id customPanel
+id dark
 id decor_content_parent
 id default_activity_button
 id dialog_button
@@ -824,8 +892,10 @@ id group_divider
 id groups
 id home
 id homeAsUp
+id hybrid
 id icon
 id icon_group
+id icon_only
 id ifRoom
 id image
 id info
@@ -833,11 +903,13 @@ id invisible
 id italic
 id item_touch_helper_previous_elevation
 id left
+id light
 id line1
 id line3
 id listMode
 id list_item
 id lv_numeros
+id map
 id media_actions
 id message
 id middle
@@ -860,6 +932,8 @@ id radio
 id right
 id right_icon
 id right_side
+id rv_usuarios
+id satellite
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -900,6 +974,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id terrain
 id text
 id text2
 id textSpacerNoButtons
@@ -912,11 +987,16 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
+id tv_cedula
+id tv_likes
+id tv_nombre
 id tv_numero
+id tv_titulo_rv
 id unchecked
 id uniform
 id up
 id useLogo
+id wide
 id withText
 id wrap
 id wrap_content
@@ -924,6 +1004,7 @@ integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer cancel_button_image_alpha
 integer config_tooltipAnimTime
+integer google_play_services_version
 integer status_bar_notification_info_maxnum
 interpolator btn_checkbox_checked_mtrl_animation_interpolator_0
 interpolator btn_checkbox_checked_mtrl_animation_interpolator_1
@@ -965,7 +1046,9 @@ layout activity_h_t_t_p
 layout activity_intent_envia_parametros
 layout activity_list_view
 layout activity_main
+layout activity_maps
 layout activity_recycler_view
+layout adaptador_persona
 layout custom_dialog
 layout notification_action
 layout notification_action_tombstone
@@ -1016,8 +1099,28 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string common_google_play_services_enable_button
+string common_google_play_services_enable_text
+string common_google_play_services_enable_title
+string common_google_play_services_install_button
+string common_google_play_services_install_text
+string common_google_play_services_install_title
+string common_google_play_services_notification_channel_name
+string common_google_play_services_notification_ticker
+string common_google_play_services_unknown_issue
+string common_google_play_services_unsupported_text
+string common_google_play_services_update_button
+string common_google_play_services_update_text
+string common_google_play_services_update_title
+string common_google_play_services_updating_text
+string common_google_play_services_wear_update_text
+string common_open_on_phone
+string common_signin_button_text
+string common_signin_button_text_long
+string google_maps_key
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_activity_maps
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1406,6 +1509,8 @@ styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
+styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
+styleable MapAttrs ambientEnabled cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MenuGroup android_enabled android_id android_visible android_menuCategory android_orderInCategory android_checkableBehavior
 styleable MenuItem android_icon android_enabled android_id android_checked android_visible android_menuCategory android_orderInCategory android_title android_titleCondensed android_alphabeticShortcut android_numericShortcut android_checkable android_onClick actionLayout actionProviderClass actionViewClass alphabeticModifiers contentDescription iconTint iconTintMode numericModifiers showAsAction tooltipText
 styleable MenuView android_windowAnimationStyle android_itemTextAppearance android_horizontalDivider android_verticalDivider android_headerBackground android_itemBackground android_itemIconDisabledAlpha preserveIconSpacing subMenuArrow
@@ -1414,6 +1519,7 @@ styleable PopupWindowBackgroundState state_above_anchor
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
+styleable SignInButton buttonSize colorScheme scopeUris
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
