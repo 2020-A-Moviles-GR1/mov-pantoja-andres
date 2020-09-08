@@ -8,6 +8,8 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ArtistaHTTP(
     val createdAt: Long,
@@ -15,16 +17,20 @@ class ArtistaHTTP(
     val id: Int,
     val nombre: String,
     val banda: Boolean,
-    val fechaInicio: LocalDate,
+    val fechaInicio: String,
     var cantidadDiscos: Int,
     var gananciaTotal: Double,
     var canciones: ArrayList<CancionHTTP>? = null
 
 ) {
     //var df1: DateTimeFormatter = Date("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+    var fechaInicioDate: LocalDate
+    init {
+        fechaInicioDate = LocalDate.parse(fechaInicio, DateTimeFormatter.ISO_DATE_TIME)
+    }
 
     override fun toString(): String {
-        return "$nombre, $fechaInicio $cantidadDiscos"
+        return "$nombre"
     }
 
 
@@ -39,7 +45,7 @@ class ArtistaHTTP(
                     jv.objInt("id"),
                     jv.objString("nombre"),
                     jv.obj?.get("banda") as Boolean,
-                    LocalDate.parse(jv.objString("fechaInicio"), DateTimeFormatter.ISO_DATE_TIME),
+                    jv.objString("fechaInicio"),
                     jv.objInt("cantidadDiscos"),
                     jv.obj?.get("gananciaTotal").toString().toDouble(),
                     Klaxon().converter(CancionHTTP.conversorCancion)

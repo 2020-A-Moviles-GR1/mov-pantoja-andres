@@ -20,24 +20,15 @@ import java.time.LocalDate
 
 class ArtistaActivity : AppCompatActivity() {
     var listaDeArtistasHTTP: ArrayList<ArtistaHTTP> = arrayListOf()
-    var listaDeArtistas: ArrayList<Artista> = arrayListOf()
     var handler: HTTPHandler = HTTPHandler()
-
     lateinit var  adapter: ArrayAdapter<ArtistaHTTP>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artista)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
-
-
        listaDeArtistasHTTP =  handler.getAll()
-
-
-        //listaDeArtistas = ArtistaDatos.listaArtista
-
         btn_actualizar.isEnabled = false
         btn_eliminar.isEnabled = false
         btn_ver_mas.isEnabled =  false
@@ -47,10 +38,8 @@ class ArtistaActivity : AppCompatActivity() {
             android.R.layout.simple_list_item_activated_1,
             listaDeArtistasHTTP
         )
-
         lv_artista.choiceMode = ListView.CHOICE_MODE_SINGLE
         lv_artista.adapter = adapter
-
         lv_artista
             .onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             lv_artista.setItemChecked(position, true)
@@ -59,29 +48,18 @@ class ArtistaActivity : AppCompatActivity() {
             btn_ver_mas.isEnabled = true
         }
 
-        btn_eliminar.setOnClickListener { boton ->
-            eliminarArtistaActual()
-        }
-        btn_ver_mas.setOnClickListener { boton ->
-            verMas()
-        }
+        btn_eliminar.setOnClickListener { boton -> eliminarArtistaActual() }
+        btn_ver_mas.setOnClickListener { boton -> verMas() }
         btn_actualizar.setOnClickListener { boton -> actualizar() }
-
         btn_agregar.setOnClickListener { boton -> irNuevoArtista() }
-
         btn_salir.setOnClickListener { boton -> finish() }
-
-
     }
+
     fun actualizar(){
         var posicion: Int = lv_artista.checkedItemPosition
         var intentExplicito: Intent = Intent(this, CreateArtistaActivity::class.java)
-//        intentExplicito.putExtra("nombre", listaDeArtistas[posicion].nombre)
-//        intentExplicito.putExtra("banda", listaDeArtistas[posicion].banda)
-//        intentExplicito.putExtra("fecha", listaDeArtistas[posicion].fechaInicio.toString())
-//        intentExplicito.putExtra("discos", listaDeArtistas[posicion].cantidadDiscos)
-//        intentExplicito.putExtra("ganacia", listaDeArtistas[posicion].gananciaTotal)
         intentExplicito.putExtra("id", listaDeArtistasHTTP[posicion].id)
+
         startActivityForResult(intentExplicito, 2)
     }
 
@@ -91,15 +69,10 @@ class ArtistaActivity : AppCompatActivity() {
         intentExplicito.putExtra("id", listaDeArtistasHTTP[posicion].id)
 
         startActivity(intentExplicito)
-
     }
 
     fun eliminarArtistaActual(
     ) {
-//        var posicion: Int = lv_artista.checkedItemPosition
-//        Log.i("list-view", "Posicion: $posicion")
-//        listaDeArtistas.removeAt(posicion)
-//        adapter.notifyDataSetChanged()
         var posicion: Int = lv_artista.checkedItemPosition
         var artistaPorEliminar = listaDeArtistasHTTP[posicion]
         val artistaEliminados = handler.deleteOne(artistaPorEliminar.id)
@@ -109,9 +82,6 @@ class ArtistaActivity : AppCompatActivity() {
         }else{
             Log.i("Error", "error al eliminar")
         }
-
-
-
     }
 
     fun irNuevoArtista() {
@@ -119,11 +89,8 @@ class ArtistaActivity : AppCompatActivity() {
             this,
             CreateArtistaActivity::class.java
         )
-
         startActivityForResult(intent, 1)
     }
-
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -137,7 +104,6 @@ class ArtistaActivity : AppCompatActivity() {
                             val fecha = data.getStringExtra("fecha")
                             val discos = data.getIntExtra("discos", 0)
                             val ganancia = data.getDoubleExtra("ganacia", 0.0)
-                           // val id: Int = listaDeArtistas.last().idArtista + 1
                             val parametros = listOf(
                                 "nombre" to "$nombre",
                                 "banda" to "$banda",
@@ -152,22 +118,7 @@ class ArtistaActivity : AppCompatActivity() {
                             }else{
                                 Log.i("Error", "Error creando artista")
                             }
-//
-//                            listaDeArtistas.add(
-//                                Artista(
-//                                    nombre,
-//                                    banda,
-//                                    LocalDate.parse(fecha),
-//                                    discos,
-//                                    ganancia,
-//                                    id
-//                                )
-//                            )
-//                            adapter.notifyDataSetChanged()
-
-
                         }
-
                     }
                     2 -> {
                         if (data != null){
@@ -181,17 +132,14 @@ class ArtistaActivity : AppCompatActivity() {
                             if (id!=0){
                                 val artista = handler.updateOne(parametros, id)
                                 if (artista!= null){
-
                                     val artistasActualizados = handler.getAll()
                                     if (artistasActualizados.size > 0){
-                                        Log.i("Si hay artisyas", "Si hay artistas")
                                         listaDeArtistasHTTP.clear()
                                         listaDeArtistasHTTP.addAll(artistasActualizados)
                                         adapter.notifyDataSetChanged()
                                     }else{
                                         Log.i("Http-get-update", "No hay datos")
                                     }
-
                                 }else{
                                     Log.i("Error", "Error creando artista")
                                 }

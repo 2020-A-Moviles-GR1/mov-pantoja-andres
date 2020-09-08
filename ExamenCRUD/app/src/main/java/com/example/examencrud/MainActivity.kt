@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
         btn_artista.setOnClickListener {
                 boton -> irArtista()
         }
-
         btn_cancion.setOnClickListener { boton -> irCancion() }
     }
 

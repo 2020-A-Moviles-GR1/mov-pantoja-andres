@@ -10,11 +10,22 @@ class CancionHTTP(
     val id: Int,
     val titulo: String,
     var premiada: Boolean,
-    val fechaLanzamiento: LocalDate,
+    val fechaLanzamiento: String,
     var numeroReproducciones: Int,
     val duracionMinutos: Double,
-    val artista: Any?
+    val artista: Any? = null
 ) {
+
+    var fechaLanzamientoDate: LocalDate
+    init {
+        fechaLanzamientoDate = LocalDate.parse(fechaLanzamiento, DateTimeFormatter.ISO_DATE_TIME)
+    }
+
+
+    override fun toString(): String {
+        return "${titulo}";
+    }
+
     companion object{
         val conversorCancion = object : Converter{
             override fun canConvert(cls: Class<*>)= cls == CancionHTTP::class.java
@@ -27,7 +38,7 @@ class CancionHTTP(
                         jv.objInt("id"),
                         jv.objString("titulo"),
                         jv.obj?.get("premiada") as Boolean,
-                        LocalDate.parse(jv.objString("fechaLanzamiento"),DateTimeFormatter.ISO_DATE_TIME),
+                        jv.objString("fechaLanzamiento"),
                         jv.objInt("numeroReproducciones"),
                         jv.obj?.get("duracionMinutos").toString().toDouble(),
                         jv.objInt("artista")
@@ -39,11 +50,10 @@ class CancionHTTP(
                         jv.objInt("id"),
                         jv.objString("titulo"),
                         jv.obj?.get("premiada") as Boolean,
-                        LocalDate.parse(jv.objString("fechaLanzamiento")),
+                        jv.objString("fechaLanzamiento"),
                         jv.objInt("numeroReproducciones"),
-                        jv.obj?.get("duracionMinutos") as Double,
-                        Klaxon()
-                            .parseFromJsonObject<ArtistaHTTP>(jv.obj?.get("artista") as JsonObject)
+                        jv.obj?.get("duracionMinutos").toString().toDouble(),
+                        Klaxon().parseFromJsonObject<ArtistaHTTP>(jv.obj?.get("artista") as JsonObject)
                     )
             }
 

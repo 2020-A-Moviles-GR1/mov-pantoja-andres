@@ -15,14 +15,6 @@ class HTTPHandler {
     fun getAll() : ArrayList<ArtistaHTTP> {
         val url = URLPrincipal;
         var artistas: ArrayList<ArtistaHTTP> = arrayListOf()
-        Log.i("result", "Antes de get")
-//        val (request, response, result) = url.httpGet().responseString()
-//        Log.i("result", "Despues de get")
-//        val (value, error) = result;
-//        Log.i("Value", "$value")
-//        Log.i("Error", "$error")
-
-
         val getHttp = url.httpGet().responseString { request, response, result ->
             when (result) {
                 is Result.Failure -> {
@@ -36,24 +28,16 @@ class HTTPHandler {
                             .converter(ArtistaHTTP.conversorArtista)
                             .parseArray<ArtistaHTTP>(data)!!
                     )
-                    artistas.forEach {
-                        Log.i("Result Succes", "$it")
-                    }
-
                 }
             }
         }
-
         getHttp.join()
-
         return artistas;
-
     }
 
     fun getOne(id: Int): ArtistaHTTP?{
         val url = URLPrincipal + "/$id";
         var artista: ArtistaHTTP? = null;
-        Log.i("URL", "$url")
         val getHttp = url.httpGet().responseString { request, response, result ->
             when (result) {
                 is Result.Failure -> {
@@ -62,33 +46,19 @@ class HTTPHandler {
                 }
                 is Result.Success -> {
                     val data = result.get();
-                    Log.i("Data", "$data")
-//                    artista = ArrayList(
-//                        Klaxon()
-//                            .converter(ArtistaHTTP.conversorArtista)
-//                            .parseJsonObject(data)
-//                    )
-//                    artistas.forEach {
-//                        Log.i("Result Succes", "$it")
-//                    }
                     artista = Klaxon().converter(ArtistaHTTP.conversorArtista)
                         .parse<ArtistaHTTP>(data)!!
-
                 }
             }
         }
-
         getHttp.join()
-
         Log.i("Artista", "$artista")
-
         return artista
     }
 
     fun deleteOne(id: Int): ArtistaHTTP?{
         val url = URLPrincipal + "/$id";
         var artista: ArtistaHTTP? = null;
-        var artistas: ArrayList<ArtistaHTTP> = arrayListOf()
         Log.i("URL", "$url")
         val deleteHttp = url.httpDelete().responseString { request, response, result ->
             when (result) {
@@ -98,26 +68,12 @@ class HTTPHandler {
                 }
                 is Result.Success -> {
                     val data = result.get();
-                    Log.i("Data", "$data")
-//                    artista = ArrayList(
-//                        Klaxon()
-//                            .converter(ArtistaHTTP.conversorArtista)
-//                            .parseJsonObject(data)
-//                    )
-//                    artistas.forEach {
-//                        Log.i("Result Succes", "$it")
-//                    }
                     artista = Klaxon().converter(ArtistaHTTP.conversorArtista)
                         .parse<ArtistaHTTP>(data)!!
-
                 }
             }
         }
-
         deleteHttp.join()
-
-       Log.i("Artista", "$artista")
-
         return artista
     }
 
@@ -133,26 +89,15 @@ class HTTPHandler {
                 is Result.Success -> {
                     val data = result.get();
                     Log.i("Data", "$data")
-//                    artista = ArrayList(
-//                        Klaxon()
-//                            .converter(ArtistaHTTP.conversorArtista)
-//                            .parseJsonObject(data)
-//                    )
-//                    artistas.forEach {
-//                        Log.i("Result Succes", "$it")
-//                    }
                     artista = Klaxon().converter(ArtistaHTTP.conversorArtista)
                         .parse<ArtistaHTTP>(data)!!
 
                 }
             }
         }
-
         postHttp.join()
         return artista
     }
-
-
 
     fun updateOne(parametrosArtista: List<Pair<String, Any>>, id: Number): ArtistaHTTP?{
         var artista: ArtistaHTTP? = null;
@@ -165,27 +110,12 @@ class HTTPHandler {
                 }
                 is Result.Success -> {
                     val data = result.get();
-                    Log.i("Data", "$data")
-//                    artista = ArrayList(
-//                        Klaxon()
-//                            .converter(ArtistaHTTP.conversorArtista)
-//                            .parseJsonObject(data)
-//                    )
-//                    artistas.forEach {
-//                        Log.i("Result Succes", "$it")
-//                    }
                     artista = Klaxon().converter(ArtistaHTTP.conversorArtista)
                         .parse<ArtistaHTTP>(data)!!
-
                 }
             }
         }
-
         putHttp.join()
         return artista
     }
-
-
-
-
 }

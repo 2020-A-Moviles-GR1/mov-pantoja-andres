@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.examencrud.datos.ArtistaDatos
 import com.example.examencrud.datos.CancionDatos
+import com.example.examencrud.httphandler.CancionHandler
+import com.example.examencrud.htttpmodels.CancionHTTP
 import com.example.examencrud.models.Artista
 import com.example.examencrud.models.Cancion
 import kotlinx.android.synthetic.main.activity_artista.*
@@ -18,29 +20,27 @@ import kotlinx.android.synthetic.main.activity_cancion.*
 import java.time.LocalDate
 
 class CancionActivity : AppCompatActivity() {
-    var listaDeCanciones: ArrayList<Cancion> = arrayListOf()
-    lateinit var  adapterCancion: ArrayAdapter<Cancion>
+    var listaDeCancionesHTTP: ArrayList<CancionHTTP> = arrayListOf()
+    var handler: CancionHandler = CancionHandler()
+    lateinit var adapterCancion: ArrayAdapter<CancionHTTP>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cancion)
-
         actionBar?.setDisplayHomeAsUpEnabled(true)
-        listaDeCanciones = CancionDatos.listaCanciones
 
+        listaDeCancionesHTTP = handler.getAll()
         btn_actualizar_cancion.isEnabled = false
         btn_eliminar_cancion.isEnabled = false
-        btn_ver_mas_cancion.isEnabled =  false
+        btn_ver_mas_cancion.isEnabled = false
 
         adapterCancion = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_activated_1,
-            listaDeCanciones
+            listaDeCancionesHTTP
         )
-
         lv_cancion.choiceMode = ListView.CHOICE_MODE_SINGLE
         lv_cancion.adapter = adapterCancion
-
         lv_cancion
             .onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             lv_cancion.setItemChecked(position, true)
@@ -49,59 +49,53 @@ class CancionActivity : AppCompatActivity() {
             btn_ver_mas_cancion.isEnabled = true
         }
 
-        btn_eliminar_cancion.setOnClickListener { boton ->
-            eliminarCancionActual()
-        }
-
+        btn_eliminar_cancion.setOnClickListener { boton -> eliminarCancionActual() }
         btn_actualizar_cancion.setOnClickListener { boton -> actualizar() }
-
         btn_agregar_cancion.setOnClickListener { boton -> irNuevaCancion() }
-
         btn_salir_cancion.setOnClickListener { boton -> finish() }
-
-        btn_ver_mas_cancion.setOnClickListener{boton -> verMas()}
-
+        btn_ver_mas_cancion.setOnClickListener { boton -> verMas() }
     }
 
-    fun verMas(){
+    fun verMas() {
         var posicion: Int = lv_cancion.checkedItemPosition
         var intent: Intent = Intent(
             this,
             CancionVerMasActivity::class.java
         )
         Log.i("Pos", "$posicion")
-        intent.putExtra("posicion", posicion)
-
+        intent.putExtra("id", listaDeCancionesHTTP[posicion].id)
         startActivity(intent)
     }
 
-    fun actualizar(){
+    fun actualizar() {
         var posicion: Int = lv_cancion.checkedItemPosition
         Log.i("list-view", "Posicion: $posicion")
         var intent: Intent = Intent(
             this,
             CreateCancionActivity::class.java
         )
-        intent.putExtra("idCancion", listaDeCanciones[posicion].idCancion)
-
+        intent.putExtra("id", listaDeCancionesHTTP[posicion].id)
         startActivityForResult(intent, 2)
-
     }
 
-    fun eliminarCancionActual(){
+    fun eliminarCancionActual() {
         var posicion: Int = lv_cancion.checkedItemPosition
         Log.i("list-view", "Posicion: $posicion")
-
-        listaDeCanciones.removeAt(posicion)
-        adapterCancion.notifyDataSetChanged()
+        var cancionPorEliminar = listaDeCancionesHTTP[posicion]
+        val cancionEliminada = handler.deleteOne(cancionPorEliminar.id)
+        if (cancionEliminada != null) {
+            listaDeCancionesHTTP.removeAt(posicion)
+            adapterCancion.notifyDataSetChanged()
+        } else {
+            Log.i("Error", "error al eliminar")
+        }
     }
 
-    fun irNuevaCancion(){
+    fun irNuevaCancion() {
         var intent: Intent = Intent(
             this,
             CreateCancionActivity::class.java
         )
-
         startActivityForResult(intent, 1)
     }
 
@@ -115,42 +109,58 @@ class CancionActivity : AppCompatActivity() {
                             val titulo = data.getStringExtra("titulo")
                             val premiada = data.getBooleanExtra("premiada", true)
                             val fecha = data.getStringExtra("fecha")
-                            val reproduccinoes = data.getIntExtra("reproducciones", 0)
+                            val reproducciiones = data.getIntExtra("reproducciones", 0)
                             val duracion = data.getDoubleExtra("duracion", 0.0)
                             val idArtista = data.getIntExtra("idArtista", 1)
-                            val id: Int = listaDeCanciones.last().idCancion + 1
-                            listaDeCanciones.add(
-                                Cancion(
-                                    titulo,
-                                    premiada,
-                                    LocalDate.parse(fecha),
-                                    reproduccinoes,
-                                    duracion,
-                                    id,
-                                    idArtista
-                                )
+                            val parametros = listOf(
+                                "titulo" to "$titulo",
+                                "premiada" to "$premiada",
+                                "fechaLanzamiento" to "$fecha",
+                                "numeroReproducciones" to "$reproducciiones",
+                                "duracionMinutos" to "$duracion",
+                                "artista" to "$idArtista"
                             )
-                            listaDeCanciones.forEach { cancion -> Log.i("titulo", "${cancion.titulo}") }
-                            adapterCancion.notifyDataSetChanged()
-
-
+                            var cancionCreada = handler.createOne(parametros)
+                            if (cancionCreada != null) {
+                                listaDeCancionesHTTP.add(cancionCreada)
+                                adapterCancion.notifyDataSetChanged()
+                            } else {
+                                Log.i("Error", "Error creando artista")
+                            }
                         }
-
                     }
                     2 -> {
-                        if (data != null){
+                        if (data != null) {
                             val reproducciones = data.getIntExtra("reproducciones", 0)
-                            val posicion = data.getIntExtra("posicion", 0)
+                            val id = data.getIntExtra("id", 0)
                             val premiada = data.getBooleanExtra("premiada", false)
-                            listaDeCanciones[posicion].numeroDeReproducciones = reproducciones
-                            listaDeCanciones[posicion].premiada = premiada
-                            adapterCancion.notifyDataSetChanged()
-
+                            val parametros = listOf(
+                                "numeroReproducciones" to "$reproducciones",
+                                "premiada" to "$premiada"
+                            )
+                            if (id != 0) {
+                                val cancion = handler.updateOne(parametros, id)
+                                if (cancion != null) {
+                                    val cancionesActualizadas = handler.getAll()
+                                    if (cancionesActualizadas.size > 0) {
+                                        Log.i("Si hay canciones", "Si hay artistas")
+                                        listaDeCancionesHTTP.clear()
+                                        listaDeCancionesHTTP.addAll(cancionesActualizadas)
+                                        adapterCancion.notifyDataSetChanged()
+                                    } else {
+                                        Log.i("Http-get-update", "No hay datos")
+                                    }
+                                } else {
+                                    Log.i("Error", "Error creando artista")
+                                }
+                            } else {
+                                Log.i("Errore traer datos update", "Error al traer datos update")
+                            }
                         }
                     }
                 }
             }
+
         }
     }
-
 }

@@ -19,51 +19,40 @@ class CreateArtistaActivity : AppCompatActivity() {
         btn_aceptar.setOnClickListener { boton -> crearArtista() }
         btn_cancelar.setOnClickListener { boton -> finish() }
         val handler = HTTPHandler();
-        if(intent.hasExtra("id")){
+        if (intent.hasExtra("id")) {
             val id = intent.getIntExtra("id", 0)
             val artista: ArtistaHTTP? = handler.getOne(id)
-            if(artista!= null){
+            if (artista != null) {
                 ponerEntornoActualizar(artista)
-            }else {
+            } else {
                 Log.i("ERROR artista act", "No hay artista")
             }
-
         }
-
-
     }
 
-    fun ponerEntornoActualizar(artista: ArtistaHTTP){
+    fun ponerEntornoActualizar(artista: ArtistaHTTP) {
         tv_titulo.text = "Actualizar Artista"
-        et_nombre.setText( artista.nombre)
+        et_nombre.setText(artista.nombre)
         et_nombre.isEnabled = false
         sw_banda.isChecked = artista.banda
         sw_banda.isEnabled = false
-        ed_fecha_inicio.setText(artista.fechaInicio.toString())
+        ed_fecha_inicio.setText(artista.fechaInicioDate.toString())
         ed_fecha_inicio.isEnabled = false
         etn_cantidad_discos.setText(artista.cantidadDiscos.toString())
         etnd_ganacia_total.setText(artista.gananciaTotal.toString())
         btn_aceptar.setOnClickListener { boton -> actualizar() }
-
     }
 
-    fun actualizar(){
+    fun actualizar() {
         val intentRespuesta: Intent = Intent()
         intentRespuesta.putExtra("discos", etn_cantidad_discos.text.toString().toInt())
         intentRespuesta.putExtra("ganacia", etnd_ganacia_total.text.toString().toDouble())
         intentRespuesta.putExtra("id", intent.getIntExtra("id", 0))
         setResult(Activity.RESULT_OK, intentRespuesta)
         finish()
-
     }
 
-    fun crearArtista(){
-        Log.i("Datos", "Nombre ${et_nombre.text.toString()}")
-        Log.i("Datos", "Fecha ${ed_fecha_inicio.text.toString()}")
-        Log.i("Datos", "Banda ${sw_banda.isChecked}")
-        Log.i("Datos", "Discos ${etn_cantidad_discos.text}")
-        Log.i("Datos", "Ganancia ${etnd_ganacia_total.text}")
-
+    fun crearArtista() {
         val intentRespuesta: Intent = Intent()
         intentRespuesta.putExtra("nombre", et_nombre.text.toString())
         intentRespuesta.putExtra("banda", sw_banda.isChecked)
@@ -72,11 +61,7 @@ class CreateArtistaActivity : AppCompatActivity() {
         intentRespuesta.putExtra("ganacia", etnd_ganacia_total.text.toString().toDouble())
         setResult(Activity.RESULT_OK, intentRespuesta)
         finish()
-
-
-
     }
-
 }
 
 
