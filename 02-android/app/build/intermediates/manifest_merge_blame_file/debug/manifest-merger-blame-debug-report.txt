@@ -26,122 +26,128 @@
 18-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:12:22-76
 19
 20    <uses-feature
-20-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
-21        android:glEsVersion="0x00020000"
-21-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+20-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:13:5-90
+21        android:name="android.hardware.location.gps"
+21-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:13:19-63
 22        android:required="true" />
-22-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
-23
-24    <application
-24-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:14:5-58:19
-25        android:allowBackup="true"
-25-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:15:9-35
-26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.1.0] /home/andres/.gradle/caches/transforms-2/files-2.1/173f9208ffbdf9865c01df7b01988e09/core-1.1.0/AndroidManifest.xml:24:18-86
-27        android:debuggable="true"
-28        android:extractNativeLibs="false"
-29        android:icon="@mipmap/ic_launcher"
-29-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:16:9-43
-30        android:label="@string/app_name"
-30-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:17:9-41
-31        android:roundIcon="@mipmap/ic_launcher_round"
-31-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:18:9-54
-32        android:supportsRtl="true"
-32-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:19:9-35
-33        android:testOnly="true"
-34        android:theme="@style/AppTheme"
-34-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:20:9-40
-35        android:usesCleartextTraffic="true" >
-35-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:21:9-44
-36
-37        <!--
-38             The API key for Google Maps-based APIs is defined as a string resource.
-39             (See the file "res/values/google_maps_api.xml").
-40             Note that the API key is linked to the encryption key used to sign the APK.
-41             You need a different API key for each encryption key, including the release key that is used to
-42             sign the APK for publishing.
-43             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-44        -->
-45        <meta-data
-45-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:31:9-33:55
-46            android:name="com.google.android.geo.API_KEY"
-46-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:32:13-58
-47            android:value="@string/google_maps_key" />
-47-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:33:13-52
-48
-49        <activity
-49-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:35:9-37:68
-50            android:name="com.example.moviles.MapsActivity"
-50-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:36:13-41
-51            android:label="@string/title_activity_maps" />
-51-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:37:13-56
-52        <activity android:name="com.example.moviles.RecyclerViewActivity" />
-52-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:38:9-58
-52-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:38:19-55
-53        <activity android:name="com.example.moviles.HTTPActivity" />
-53-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:39:9-50
-53-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:39:19-47
-54        <activity android:name="com.example.moviles.IntentEnviaParametrosActivity" >
-54-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:40:9-48:20
-54-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:40:19-64
-55            <intent-filter>
-55-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:41:13-47:29
-56                <action android:name="android.intent.action.SEND" />
-56-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:42:17-69
-56-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:42:25-66
-57
-58                <category android:name="android.intent.category.DEFAULT" />
-58-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:44:17-76
-58-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:44:27-73
-59
-60                <data android:mimeType="text/plain" />
-60-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:46:17-55
-60-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:46:23-52
-61            </intent-filter>
-62        </activity>
-63        <activity android:name="com.example.moviles.ListViewActivity" />
-63-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:49:9-54
-63-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:49:19-51
-64        <activity android:name="com.example.moviles.CicloVida" />
-64-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:50:9-47
-64-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:50:19-44
-65        <activity android:name="com.example.moviles.MainActivity" >
-65-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:51:9-57:20
-65-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:51:19-47
-66            <intent-filter>
-66-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:52:13-56:29
-67                <action android:name="android.intent.action.MAIN" />
-67-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:53:17-69
-67-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:53:25-66
-68
-69                <category android:name="android.intent.category.LAUNCHER" />
-69-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:55:17-77
-69-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:55:27-74
-70            </intent-filter>
-71        </activity>
-72        <!-- Needs to be explicitly declared on P+ -->
-73        <uses-library
-73-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-74            android:name="org.apache.http.legacy"
-74-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-75            android:required="false" />
-75-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-76
-77        <activity
-77-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-78            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-78-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-79            android:exported="false"
-79-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-80            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-80-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-81
-82        <meta-data
-82-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-83            android:name="com.google.android.gms.version"
-83-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-84            android:value="@integer/google_play_services_version" />
-84-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-85    </application>
-86
-87</manifest>
+22-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:13:64-87
+23    <uses-feature
+23-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+24        android:glEsVersion="0x00020000"
+24-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+25        android:required="true" />
+25-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+26
+27    <application
+27-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:15:5-59:19
+28        android:allowBackup="true"
+28-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:16:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.1.0] /home/andres/.gradle/caches/transforms-2/files-2.1/173f9208ffbdf9865c01df7b01988e09/core-1.1.0/AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:extractNativeLibs="false"
+32        android:icon="@mipmap/ic_launcher"
+32-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:17:9-43
+33        android:label="@string/app_name"
+33-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:18:9-41
+34        android:roundIcon="@mipmap/ic_launcher_round"
+34-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:19:9-54
+35        android:supportsRtl="true"
+35-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:20:9-35
+36        android:testOnly="true"
+37        android:theme="@style/AppTheme"
+37-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:21:9-40
+38        android:usesCleartextTraffic="true" >
+38-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:22:9-44
+39
+40        <!--
+41             The API key for Google Maps-based APIs is defined as a string resource.
+42             (See the file "res/values/google_maps_api.xml").
+43             Note that the API key is linked to the encryption key used to sign the APK.
+44             You need a different API key for each encryption key, including the release key that is used to
+45             sign the APK for publishing.
+46             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+47        -->
+48        <meta-data
+48-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:32:9-34:55
+49            android:name="com.google.android.geo.API_KEY"
+49-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:33:13-58
+50            android:value="@string/google_maps_key" />
+50-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:34:13-52
+51
+52        <activity
+52-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:36:9-38:68
+53            android:name="com.example.moviles.MapsActivity"
+53-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:37:13-41
+54            android:label="@string/title_activity_maps" />
+54-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:38:13-56
+55        <activity android:name="com.example.moviles.RecyclerViewActivity" />
+55-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:39:9-58
+55-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:39:19-55
+56        <activity android:name="com.example.moviles.HTTPActivity" />
+56-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:40:9-50
+56-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:40:19-47
+57        <activity android:name="com.example.moviles.IntentEnviaParametrosActivity" >
+57-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:41:9-49:20
+57-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:41:19-64
+58            <intent-filter>
+58-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:42:13-48:29
+59                <action android:name="android.intent.action.SEND" />
+59-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:43:17-69
+59-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:43:25-66
+60
+61                <category android:name="android.intent.category.DEFAULT" />
+61-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:45:17-76
+61-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:45:27-73
+62
+63                <data android:mimeType="text/plain" />
+63-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:47:17-55
+63-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:47:23-52
+64            </intent-filter>
+65        </activity>
+66        <activity android:name="com.example.moviles.ListViewActivity" />
+66-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:50:9-54
+66-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:50:19-51
+67        <activity android:name="com.example.moviles.CicloVida" />
+67-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:51:9-47
+67-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:51:19-44
+68        <activity android:name="com.example.moviles.MainActivity" >
+68-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:52:9-58:20
+68-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:52:19-47
+69            <intent-filter>
+69-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:53:13-57:29
+70                <action android:name="android.intent.action.MAIN" />
+70-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:54:17-69
+70-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:54:25-66
+71
+72                <category android:name="android.intent.category.LAUNCHER" />
+72-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:56:17-77
+72-->/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/02-android/app/src/main/AndroidManifest.xml:56:27-74
+73            </intent-filter>
+74        </activity>
+75        <!-- Needs to be explicitly declared on P+ -->
+76        <uses-library
+76-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+77            android:name="org.apache.http.legacy"
+77-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+78            android:required="false" />
+78-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+79
+80        <activity
+80-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+81            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+81-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+82            android:exported="false"
+82-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+83            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+83-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+84
+85        <meta-data
+85-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+86            android:name="com.google.android.gms.version"
+86-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+87            android:value="@integer/google_play_services_version" />
+87-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+88    </application>
+89
+90</manifest>
