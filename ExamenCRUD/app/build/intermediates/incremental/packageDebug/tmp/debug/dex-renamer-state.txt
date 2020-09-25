@@ -1,4 +1,4 @@
-#Tue Sep 08 15:43:40 ECT 2020
+#Mon Sep 21 21:32:17 ECT 2020
 base.0=/home/andres/Desktop/EPN/7MO/mov-pantoja-andres/ExamenCRUD/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

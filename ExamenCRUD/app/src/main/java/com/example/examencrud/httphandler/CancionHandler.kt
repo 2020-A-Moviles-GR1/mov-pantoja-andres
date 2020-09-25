@@ -41,6 +41,36 @@ class CancionHandler {
         return canciones;
     }
 
+
+    fun getAllByArtist(idArtista: Int): ArrayList<CancionHTTP> {
+        val url = URLPrincipal + "?artista=$idArtista";
+        var canciones: ArrayList<CancionHTTP> = arrayListOf()
+        val getHttp = url.httpGet().responseString { request, response, result ->
+            when (result) {
+                is Result.Failure -> {
+                    val ex = result.getException()
+                    val error = result.error
+                    Log.i("http-klaxon", "Error: ${ex.message}")
+                }
+                is Result.Success -> {
+                    val data = result.get();
+                    canciones = ArrayList(
+                        Klaxon()
+                            .converter(CancionHTTP.conversorCancion)
+                            .parseArray<CancionHTTP>(data)!!
+                    )
+                    canciones.forEach {
+                        Log.i("Result Succes", "$it")
+                    }
+                }
+            }
+        }
+        getHttp.join()
+        return canciones;
+    }
+
+
+
     fun getOne(id: Int): CancionHTTP? {
         val url = URLPrincipal + "/$id";
         var cancion: CancionHTTP? = null;

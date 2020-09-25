@@ -13,6 +13,10 @@ class CancionHTTP(
     val fechaLanzamiento: String,
     var numeroReproducciones: Int,
     val duracionMinutos: Double,
+    val latitud: Double,
+    val longitud: Double,
+    val imagePath: String,
+    val website: String,
     val artista: Any? = null
 ) {
 
@@ -41,6 +45,10 @@ class CancionHTTP(
                         jv.objString("fechaLanzamiento"),
                         jv.objInt("numeroReproducciones"),
                         jv.obj?.get("duracionMinutos").toString().toDouble(),
+                        jv.obj?.get("latitud").toString().toDouble(),
+                        jv.obj?.get("longitud").toString().toDouble(),
+                        jv.objString("imagePath"),
+                        jv.objString("website"),
                         jv.objInt("artista")
                     )
                 else
@@ -53,6 +61,10 @@ class CancionHTTP(
                         jv.objString("fechaLanzamiento"),
                         jv.objInt("numeroReproducciones"),
                         jv.obj?.get("duracionMinutos").toString().toDouble(),
+                        jv.obj?.get("latitud").toString().toDouble(),
+                        jv.obj?.get("longitud").toString().toDouble(),
+                        jv.objString("imagePath"),
+                        jv.objString("website"),
                         Klaxon().parseFromJsonObject<ArtistaHTTP>(jv.obj?.get("artista") as JsonObject)
                     )
             }

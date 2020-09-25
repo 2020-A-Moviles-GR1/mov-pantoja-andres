@@ -72,6 +72,7 @@ class RecyclerViewActivity : AppCompatActivity() {
             recyclerView: RecyclerView
     ){
         val adaptadorUsuario = RecyclerAdapter(
+
                 lista,
                 actividad,
                 recyclerView

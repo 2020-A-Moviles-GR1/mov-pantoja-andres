@@ -4,32 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.widget.Adapter
 import android.widget.ArrayAdapter
-import com.example.examencrud.datos.ArtistaDatos
-import com.example.examencrud.datos.CancionDatos
 import com.example.examencrud.httphandler.CancionHandler
-import com.example.examencrud.httphandler.HTTPHandler
+import com.example.examencrud.httphandler.ArtistaHandler
 import com.example.examencrud.htttpmodels.ArtistaHTTP
 import com.example.examencrud.htttpmodels.CancionHTTP
-import com.example.examencrud.models.Artista
-import com.example.examencrud.models.Cancion
-import kotlinx.android.synthetic.main.activity_create_artista.*
-import kotlinx.android.synthetic.main.activity_create_artista.btn_aceptar
-import kotlinx.android.synthetic.main.activity_create_artista.btn_cancelar
-import kotlinx.android.synthetic.main.activity_create_artista.ed_fecha_inicio
-import kotlinx.android.synthetic.main.activity_create_artista.et_nombre
-import kotlinx.android.synthetic.main.activity_create_artista.etn_cantidad_discos
-import kotlinx.android.synthetic.main.activity_create_artista.etnd_ganacia_total
-import kotlinx.android.synthetic.main.activity_create_artista.sw_banda
 import kotlinx.android.synthetic.main.activity_create_cancion.*
 
 class CreateCancionActivity : AppCompatActivity() {
     var listaDeArtistas: ArrayList<ArtistaHTTP> = arrayListOf()
     var handlerCancion: CancionHandler = CancionHandler()
-    var handlerArtista: HTTPHandler = HTTPHandler()
+    var handlerArtista: ArtistaHandler = ArtistaHandler()
     lateinit var adapterArtista: ArrayAdapter<ArtistaHTTP>
 
     override fun onCreate(savedInstanceState: Bundle?) {

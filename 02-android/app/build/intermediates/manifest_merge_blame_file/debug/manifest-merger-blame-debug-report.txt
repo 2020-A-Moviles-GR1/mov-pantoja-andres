@@ -133,21 +133,30 @@
 78            android:required="false" />
 78-->[com.google.android.gms:play-services-maps:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/7345f62f6933bfbfe70b0b6c644df5f1/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
 79
-80        <activity
-80-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-81            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-81-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-82            android:exported="false"
-82-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-83            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-83-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+80        <provider
+80-->[com.squareup.picasso:picasso:2.71828] /home/andres/.gradle/caches/transforms-2/files-2.1/f35db4bb394e1d8f872213c0ec40ffa6/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+81            android:name="com.squareup.picasso.PicassoProvider"
+81-->[com.squareup.picasso:picasso:2.71828] /home/andres/.gradle/caches/transforms-2/files-2.1/f35db4bb394e1d8f872213c0ec40ffa6/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+82            android:authorities="com.example.moviles.com.squareup.picasso"
+82-->[com.squareup.picasso:picasso:2.71828] /home/andres/.gradle/caches/transforms-2/files-2.1/f35db4bb394e1d8f872213c0ec40ffa6/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+83            android:exported="false" />
+83-->[com.squareup.picasso:picasso:2.71828] /home/andres/.gradle/caches/transforms-2/files-2.1/f35db4bb394e1d8f872213c0ec40ffa6/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
 84
-85        <meta-data
-85-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-86            android:name="com.google.android.gms.version"
-86-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-87            android:value="@integer/google_play_services_version" />
-87-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-88    </application>
+85        <activity
+85-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+86            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+86-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+87            android:exported="false"
+87-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+88            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+88-->[com.google.android.gms:play-services-base:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/b1beed74396dcf2ff7139271bbe8d64c/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
 89
-90</manifest>
+90        <meta-data
+90-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+91            android:name="com.google.android.gms.version"
+91-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+92            android:value="@integer/google_play_services_version" />
+92-->[com.google.android.gms:play-services-basement:17.0.0] /home/andres/.gradle/caches/transforms-2/files-2.1/93be7174b7be54dada154bbbe746f6ab/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+93    </application>
+94
+95</manifest>

@@ -3,14 +3,14 @@ package com.example.examencrud
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.examencrud.httphandler.HTTPHandler
+import com.example.examencrud.httphandler.ArtistaHandler
 import kotlinx.android.synthetic.main.activity_artista_ver_mas.*
 
 class ArtistaVerMasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_artista_ver_mas)
-        val handler = HTTPHandler()
+        val handler = ArtistaHandler()
         val id = intent.getIntExtra("id", 0)
         if (id != 0) {
             val artista = handler.getOne(id)

@@ -7,12 +7,10 @@ import android.util.Log
 import com.example.examencrud.datos.ArtistaDatos
 import com.example.examencrud.datos.CancionDatos
 import com.example.examencrud.httphandler.CancionHandler
-import com.example.examencrud.httphandler.HTTPHandler
 import com.example.examencrud.htttpmodels.ArtistaHTTP
 import com.example.examencrud.htttpmodels.CancionHTTP
 import com.example.examencrud.models.Artista
 import com.example.examencrud.models.Cancion
-import kotlinx.android.synthetic.main.activity_artista_ver_mas.*
 import kotlinx.android.synthetic.main.activity_artista_ver_mas.btn_salir
 import kotlinx.android.synthetic.main.activity_cancion_ver_mas.*
 

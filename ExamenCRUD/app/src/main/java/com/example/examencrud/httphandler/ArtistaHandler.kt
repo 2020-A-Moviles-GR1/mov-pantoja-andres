@@ -9,7 +9,7 @@ import com.github.kittinunf.fuel.core.Request
 import com.github.kittinunf.fuel.core.awaitResult
 import com.github.kittinunf.result.Result
 
-class HTTPHandler {
+class ArtistaHandler {
     val URLPrincipal: String = "http://192.168.0.132:1337/artista"
 
     fun getAll() : ArrayList<ArtistaHTTP> {
